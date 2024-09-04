@@ -98,41 +98,39 @@ class WeeklyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: error != null
-            ? Text(
-                error ?? "Error",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      // fontWeight: FontWeight.w400,
-                      height: 1.5,
-                    ),
-              )
-            : SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      getLocationString(),
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            height: 1.5,
-                          ),
-                    ),
-                    if (location.isNotEmpty) const SizedBox(height: 16),
-                    if (location.isNotEmpty)
-                      for (final item in getTodayTemp())
-                        Text(
-                          item,
-                          textAlign: TextAlign.start,
-                          style: Theme.of(context).textTheme.headlineSmall,
+    return Center(
+      child: error != null
+          ? Text(
+              error ?? "Error",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    // fontWeight: FontWeight.w400,
+                    height: 1.5,
+                  ),
+            )
+          : SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    getLocationString(),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w600,
+                          height: 1.5,
                         ),
-                  ],
-                ),
+                  ),
+                  if (location.isNotEmpty) const SizedBox(height: 16),
+                  if (location.isNotEmpty)
+                    for (final item in getTodayTemp())
+                      Text(
+                        item,
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                ],
               ),
-      ),
+            ),
     );
   }
 }

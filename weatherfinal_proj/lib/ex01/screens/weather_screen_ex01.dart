@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:weatherfinal_proj/ex00/screens/subscreens/currently_screen.dart';
